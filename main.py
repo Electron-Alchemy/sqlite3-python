@@ -24,10 +24,22 @@ cursor.execute("INSERT INTO stores VALUES (95, 'Chicago, IL')")
 cursor.execute("INSERT INTO stores VALUES (64, 'Iowa CIty, IA')")
 
 cursor.execute("INSERT INTO purchases VALUES (54, 21, 15.49)")
-cursor.execute("INSERT INTO purchases VALUES (23, 64, 15.49)")
+cursor.execute("INSERT INTO purchases VALUES (23, 64, 21.36)")
 
 # get results
 cursor.execute("SELECT * From purchases")
 
 result = cursor.fetchall()
 print(result)
+
+# update
+cursor.execute("UPDATE purchases SET total_cost = 3.67 WHERE purchase_id=54")
+cursor.execute("SELECT * From purchases")
+result = cursor.fetchall()
+print(result) 
+
+# delete
+cursor.execute("DELETE from  purchases WHERE purchase_id=54")
+cursor.execute("SELECT * From purchases")
+result = cursor.fetchall()
+print(result) 
